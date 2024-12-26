@@ -11,6 +11,9 @@ class Place extends Model
 
     protected $guarded = [];
     protected $appends = ['field_count'];
+    protected $routeKeyName = 'slug';
+
+    protected $with = ['field'];
 
     protected static function boot()
     {

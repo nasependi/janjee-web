@@ -19,7 +19,7 @@ class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar';
 
     public static function getLabel(): ?string
     {
@@ -129,7 +129,7 @@ class BookingResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $query = parent::getEloquentQuery();
+        $query = parent::getEloquentQuery()->latest();
 
         if (!auth()->user()->hasRole('superadmin')) {
             $query->whereHas('field', function (Builder $query) {

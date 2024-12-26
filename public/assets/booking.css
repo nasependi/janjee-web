@@ -1,0 +1,72 @@
+/* * {
+        border: 1px solid red !important;
+      } */
+.navbar {
+    background-color: #fff;
+    padding: 15px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    display: block;
+    width: 100%;
+    height: 100px;
+    /* Atur tinggi gambar */
+    object-fit: cover;
+    /* Cropping otomatis */
+    border-radius: 10px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      } */
+.swiper-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.swiper-img.clicked {
+    transform: scale(1.2);
+    /* Perbesar gambar */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.btn-xs {
+    padding: 0.25rem 0.5rem;
+    /* Sesuaikan padding */
+    font-size: 0.75rem;
+    /* Ukuran font lebih kecil */
+    line-height: 1;
+    /* Sesuaikan tinggi garis */
+    border-radius: 0.2rem;
+    /* Sudut tombol */
+}

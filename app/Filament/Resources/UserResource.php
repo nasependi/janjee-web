@@ -51,16 +51,20 @@ class UserResource extends Resource
                     ->maxLength(255),
                 TextInput::make('password')
                     ->password()
-                    ->required()
-                    ->label('Password'),
+                    ->label('Password')
+                    ->dehydrateStateUsing(function ($state) {
+                        // Jika tidak diisi, jangan ubah password
+                        return empty($state) ? null : bcrypt($state);
+                    })
+                    ->nullable(), // Password boleh kosong saat update
                 Forms\Components\Select::make('roles')
                     ->required()
                     ->label('Role')
                     ->relationship('roles', 'name')
                     ->preload(),
-
             ]);
     }
+
 
     public static function table(Table $table): Table
     {

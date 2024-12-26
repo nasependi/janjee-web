@@ -15,9 +15,9 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categoryData = [
-            ['name' => 'Futsal', 'image' => '-'],
-            ['name' => 'Mini Soccer', 'image' => '-'],
-            ['name' => 'Barbershop', 'image' => '-'],
+            ['name' => 'Futsal', 'image' => 'logojanjee/Soccer-rafiki.svg'],
+            ['name' => 'Mini Soccer', 'image' => 'logojanjee/Soccer-bro.svg'],
+            ['name' => 'Barbershop', 'image' => 'logojanjee/barber.jpg'],
         ];
 
         foreach ($categoryData as $key => $value) {

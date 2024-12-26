@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\ValidationException;
 
 class Booking extends Model
 {
@@ -23,6 +24,7 @@ class Booking extends Model
     {
         static::saving(function ($model) {
             $exists = Booking::where('date', $model->date)
+                ->where('field_id', $model->field_id)
                 ->where('start_at', $model->start_at)
                 ->exists();
 

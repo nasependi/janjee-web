@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class)->name('home');
+Route::get('/{slug}',[CategoryController::class,'view'])->name('category.view');
+Route::get('/{category:slug}/{place:slug}',[BookingController::class,'view'])->name('booking.view');
+Route::post('/booking-create',[BookingController::class,'store'])->name('booking.create');

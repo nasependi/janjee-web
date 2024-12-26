@@ -1,0 +1,128 @@
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid #0000;
+        border-right-color: #ffa50097;
+        position: relative;
+        animation: l24 1s infinite linear;
+    }
+    .loader:before,
+    .loader:after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        border: inherit;
+        animation: inherit;
+        animation-duration: 2s;
+    }
+    .loader:after {
+        animation-duration: 4s;
+    }
+    @keyframes l24 {
+        100% {transform: rotate(1turn)}
+    }      
+
+    .navbar {
+        background-color: #fff;
+        padding: 15px 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-link {
+        color: #000;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .swiper-container {
+        margin-top: 20px;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 380px; /* Default height */
+        object-fit: cover; /* Cropping otomatis */
+    }
+
+    .swiper-thumb .swiper-slide img {
+        height: 100px; /* Ukuran thumbnail */
+        object-fit: cover;
+    }
+
+    .swiper-thumb .swiper-slide {
+        opacity: 0.4;
+        cursor: pointer;
+    }
+
+    .swiper-thumb .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+    .aku {
+        position: absolute;
+        font-family: "Roboto", sans-serif;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: -webkit-gradient(linear,left top,left bottom, from(rgba(27, 27, 27, 0.4)),color-stop(25%, rgba(27, 27, 27, 0.4)));
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        .swiper-slide img {
+            height: 280px; /* Kurangi tinggi gambar untuk layar lebih kecil */
+        }
+
+        .swiper-thumb .swiper-slide img {
+            height: 80px; /* Thumbnail lebih kecil */
+        }
+
+        .swiper-thumb .swiper-slide {
+            opacity: 0.6;
+        }
+
+        .search-bar {
+            max-width: 400px;
+        }
+
+        .navbar-nav .btn {
+            font-size: 14px; /* Tombol lebih kecil */
+            padding: 5px 10px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .swiper-slide img {
+            height: 650px; /* Lebih kecil untuk layar sangat kecil */
+        }
+
+        .swiper-thumb .swiper-slide img {
+            height: 60px; /* Thumbnail lebih kecil */
+        }
+
+        .swiper-thumb .swiper-slide {
+            opacity: 0.8;
+        }
+
+        .search-bar {
+            max-width: 300px;
+        }
+
+        .navbar-brand img {
+            width: 80px; /* Logo lebih kecil */
+        }
+
+        .navbar-nav .btn {
+            font-size: 12px; /* Ukuran font tombol lebih kecil */
+        }
+    }
