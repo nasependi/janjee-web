@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 'email' => $role['email'],
             ], [
                 'phone_number' => $role['phone_number'],
-                'password' => bcrypt('password')
+                'password' => 'password'
             ]);
 
             if ($role['name'] == 'Super Admin') {
