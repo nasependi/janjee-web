@@ -64,7 +64,9 @@
                 </h2>
 
                 <p class="about-description">
-                    Dengan JanJee, kamu tidak perlu lagi membuang waktu untuk mengantri. Atur jadwal serta aktivitas lainnya dengan mudah. Lihat langsung ketersediaan mereka, sehingga kamu bisa memanfaatkan waktumu untuk hal lain yang lebih produktif.
+                    Dengan JanJee, kamu tidak perlu lagi membuang waktu untuk mengantri. Atur jadwal serta aktivitas
+                    lainnya dengan mudah. Lihat langsung ketersediaan mereka, sehingga kamu bisa memanfaatkan waktumu
+                    untuk hal lain yang lebih produktif.
                 </p>
 
                 <div class="about-details">
@@ -106,36 +108,19 @@
                 Beberapa event atau competition yang ada di garut
             </p>
             <div class="cards">
-                <!-- Card 1 -->
-                <div class="card">
-                    <img src="assets/img/event.jpg" alt="Trofeo Persib" class="card-image">
-                    <div class="card-content">
-                        <span class="badge">Futsal & Badminton</span>
-                        <h3>Piala Rektor</h3>
-                        <p><strong>📅</strong> 28-30 November 2024</p>
-                        <p><strong>📍</strong> Gordah & Gor Pesona Intan</p>
+                @forelse ($event as $value)
+                    <div class="card">
+                        <img src="{{ Storage::url($value->image) }}" alt="{{ $value->title }}" class="card-image">
+                        <div class="card-content">
+                            <span class="badge">{{ $value->category->name }}</span>
+                            <h3>{{ $value->title }}</h3>
+                            <p><strong>📅</strong> {{ $value->start_at }} s/d {{ $value->end_at }}</p>
+                            <p><strong>📍</strong> {{ $value->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="card">
-                    <img src="assets/img/event2.jpg" alt="Weekend Fun Futsal" class="card-image">
-                    <div class="card-content">
-                        <span class="badge">Futsal</span>
-                        <h3>Himatif ITG Competition</h3>
-                        <p><strong>📅</strong> 28-30 Oktober 2024</p>
-                        <p><strong>📍</strong> Gordah</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="card">
-                    <img src="assets/img/event3.jpg" alt="Turnamen Badminton" class="card-image">
-                    <div class="card-content">
-                        <span class="badge">Futsal</span>
-                        <h3>Noctur Championship</h3>
-                        <p><strong>📅</strong> 5-7 Januari 2024</p>
-                        <p><strong>📍</strong> SOR RAA Adiwijaya</p>
-                    </div>
-                </div>
+                @empty
+                    Belum ada event
+                @endforelse
             </div>
         </div>
     </section>
