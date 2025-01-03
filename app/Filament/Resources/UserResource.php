@@ -52,11 +52,14 @@ class UserResource extends Resource
                 TextInput::make('password')
                     ->password()
                     ->label('Password')
-                    ->dehydrateStateUsing(function ($state) {
-                        // Jika tidak diisi, jangan ubah password
-                        return empty($state) ? null : bcrypt($state);
-                    })
-                    ->nullable(), // Password boleh kosong saat update
+                    ->nullable() // Membuat input opsional
+                    ->rules('nullable', 'min:6') // Menambahkan aturan validasi jika diisi
+                    ->dehydrateStateUsing(function ($state, $record) {
+                        if (empty($state)) {
+                            return $record->password; // Mengembalikan password lama dari record
+                        }
+                        return $state; // Enkripsi hanya jika password diisi
+                    }),
                 Forms\Components\Select::make('roles')
                     ->required()
                     ->label('Role')
