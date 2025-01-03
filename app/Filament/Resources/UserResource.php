@@ -53,13 +53,12 @@ class UserResource extends Resource
                     ->password()
                     ->label('Password')
                     ->nullable() // Membuat input opsional
-                    ->rules('nullable', 'min:6') // Menambahkan aturan validasi jika diisi
-                    ->dehydrateStateUsing(function ($state, $record) {
-                        if (empty($state)) {
-                            return $record->password; // Mengembalikan password lama dari record
-                        }
-                        return $state; // Enkripsi hanya jika password diisi
-                    }),
+                    ->rules('nullable', 'min:6') // Validasi opsional dengan minimal panjang 6
+                    ->dehydrateStateUsing(function ($state) {
+                        return empty($state) ? null : $state; // Tidak perlu bcrypt di sini
+                    })
+                    ->dehydrated(fn($state) => !empty($state)), // Hanya kirim nilai jika password diisi
+
                 Forms\Components\Select::make('roles')
                     ->required()
                     ->label('Role')
